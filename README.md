@@ -26,9 +26,9 @@ A ferramenta extrai o objeto principal perfeitamente em questão de segundos e e
 E o melhor de tudo? É **100% gratuito, sem limites diários ou marca d'água.**
 
 ### Demonstração de Uso:
-> *Dica: Você pode colocar um GIF ou Print do site rodando aqui dentro da pasta `imagens do projeto/tela-app.png` e descomentar a linha abaixo!*
 <p align="center">
-  <!-- <img src="imagens do projeto/tela-app.png" alt="Tela do Sistema" width="80%"/> -->
+  <img src="imagens%20do%20projeto/Primeiro%20dobra%20do%20site.png" alt="Tela do Sistema" width="80%"/>
+  <br>
   <i>Uma experiência Cyberpunk de alto desempenho.</i>
 </p>
 
