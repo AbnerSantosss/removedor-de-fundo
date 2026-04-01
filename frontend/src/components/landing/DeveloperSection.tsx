@@ -65,7 +65,7 @@ const DeveloperSection: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="flex flex-col max-w-xl text-center lg:text-left"
           >
-            <h3 className="text-2xl font-bold text-white mb-2">Engenheiro de Software & Entusiasta de Inteligência Artificial</h3>
+            <h3 className="text-2xl font-bold text-white mb-2">Desenvolvedor & Apaixonado por Programação</h3>
             <div className="w-16 h-1 bg-gradient-to-r from-cyber-primary to-cyber-accent rounded-full mb-6 mx-auto lg:mx-0"></div>
             
             <p className="text-gray-400 text-lg font-light leading-relaxed mb-6">
