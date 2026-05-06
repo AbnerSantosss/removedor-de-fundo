@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  # ══════════════════════════════════════════════
+  #  FRONTEND — React + Vite (servido via Nginx)
+  # ══════════════════════════════════════════════
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "8091:80"   # Porta Externa 8091 -> Nginx interno na 80
+    networks:
+      - rembg_network
+    depends_on:
+      - backend
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
+  # ══════════════════════════════════════════════
+  #  BACKEND — Python FastAPI + rembg (IA)
+  # ══════════════════════════════════════════════
+  backend:
+    build:
+      context: ./backend
+    # Porta 3091 exposta APENAS para debug (pode remover em produção)
+    # O frontend se comunica via rede interna pelo nome "backend"
+    ports:
+      - "3091:8000"
+    networks:
+      - rembg_network
+    volumes:
+      # Cache dos modelos de IA (evita re-download a cada restart)
+      - rembg_models:/root/.u2net
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+
+# ══════════════════════════════════════════════
+#  Rede Interna Isolada (bridge)
+# ══════════════════════════════════════════════
+networks:
+  rembg_network:
+    driver: bridge
+
+# ══════════════════════════════════════════════
+#  Volumes Persistentes
+# ══════════════════════════════════════════════
+volumes:
+  rembg_models:
+    name: rembg_models_cache

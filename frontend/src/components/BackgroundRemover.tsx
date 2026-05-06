@@ -29,7 +29,8 @@ const BackgroundRemover: React.FC = () => {
     formData.append('file', file);
 
     try {
-      const response = await axios.post('http://localhost:8000/api/remove-bg', formData, {
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+      const response = await axios.post(`${API_URL}/api/remove-bg`, formData, {
         responseType: 'blob', // Mantém binário para transparência PNG
         headers: {
           'Content-Type': 'multipart/form-data',
